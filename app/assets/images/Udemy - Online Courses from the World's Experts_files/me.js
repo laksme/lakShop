@@ -1,1 +1,0 @@
-var UD = UD || {}; UD.me = {"_class": "user", "id": 9988814, "title": "Lakshmi Narasimhan", "image_50x50": "https://dujk9xa5fr1wz.cloudfront.net/user/50x50/anonymous.svg", "image_100x100": "https://dujk9xa5fr1wz.cloudfront.net/user/100x100/anonymous.svg", "locale": "en_US", "created": "2015-01-04T22:57:46Z", "time_zone": "America/Los_Angeles", "email": "ramakrlnn@gmail.com"};
