@@ -29,11 +29,9 @@
         </td>
       </tr>
   <% end %>
-
-</div>
+</table>
 
 <br>
-
 <% if (user_signed_in?) %>
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link"  %>
+    <%= link_to 'New Listing', new_listing_path, class: "btn btn-link"  %>
 <% end %>
