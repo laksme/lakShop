@@ -8,6 +8,7 @@
 		<h3> <%= @listing.name %></h3>
 		<p><%= @listing.description %></p>
 		<p><%= number_to_currency(@listing.price) %></p>
+        <%= link_to "Request to Lease", new_listing_order_path(@listing), class: "btn btn-primary" %>
 	</div>
 </div>	
 <% if current_user == @listing.user %>

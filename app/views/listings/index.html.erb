@@ -1,10 +1,19 @@
 <div class="jumbotron">
-  <h1> Lease or share anything </h1>
-  <h2> Be a truly resourceful person to your friends </h2>
+  <h1>Lease made Easy with lEASY</h1>
+  <h2> A webApp to lease or share items easily with your friends.<h2>
 </div>
+<% if (!user_signed_in?) %>
+   <br> <br> <br> <h2> Find out what your friends are leasing:- <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %> </h2>
+<% end %>
+
+<% if (user_signed_in?) %>
+    <br>
+    <h2> Check what items are currently available to lease or share from your friends ? </h2>
+    <br>
 <div class="center">
   <div class="row">
     <% @listings.each do |listing| %>
+        <% if (current_user != listing.user) %>
       <div class="col-md-3">
         <div class="thumbnail">
          <%= link_to image_tag(listing.image.url), listing %> 
@@ -12,21 +21,45 @@
           <div class="caption">
             <h3><%= listing.name %></h3>
             <p><%= number_to_currency(listing.price) %></p>
-            <p><%="Sold by :- #{listing.user.name}" %></p>
-            
-            <% if (user_signed_in?) && (current_user == listing.user) %>
-              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
-              <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link"  %>
-            <% end %>
+            <p><%="Leased By :- #{listing.user.name}" %></p>
+
           </div>
         </div>
       </div>
+        <% end %>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <h2>Here is a complete list of items that you are leasing out to your friends </h2>
+  <br>
+
+  <div class="row">
+    <% @listings.each do |listing| %>
+        <% if (current_user == listing.user) %>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <%= link_to image_tag(listing.image.url), listing %>
+
+            <div class="caption">
+              <h3><%= listing.name %></h3>
+              <p><%= number_to_currency(listing.price) %></p>
+              <p><%="Leased by :- #{listing.user.name}" %></p>
+              <%= link_to 'Edit', edit_listing_path(listing), class: "btn btn-link" %>
+              <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link"  %>
+
+            </div>
+          </div>
+        </div>
+        <% end %>
     <% end %>
   </div>
 </div>
+    <% end %>
 
 <br>
 
 <% if (user_signed_in?) %>
-  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link"  %>
+    <h2> Be resourceful to your friends, add new stuff to lease </h2>
+  <%= link_to 'Add items', new_listing_path, class: "btn btn-success"  %>
 <% end %>
