@@ -1,12 +1,24 @@
-<div class="jumbotron">
-  <h1>Lease made Easy with lEASY</h1>
-  <h2> A webApp to lease or share items easily with your friends.<h2>
-</div>
+<body>
 <% if (!user_signed_in?) %>
-   <br> <br> <br> <h2> Find out what your friends are leasing:- <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %> </h2>
+    <video autoplay  poster="https://dl.dropboxusercontent.com/s/0xg4lvvimdpk9dd/Leasy.jpg?dl=0" id="bgvid" loop>
+      <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+      <source src="https://dl.dropboxusercontent.com/s/c8b9cyt9qah3rwk/Leasy.mp4?dl=0" type="video/mp4">
+    </video>
+    <div id="polina">
+      <h1>Lease made Easy with lEASY</h1>
+      <br> <h2> A webApp to lease or share items easily with your friends.<h2>
+      <br> <br> <h2> Find out what your friends are leasing:- <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-large btn-primary" %> </h2>
+      <button>Pause</button>
+    </div>
+
+
 <% end %>
 
 <% if (user_signed_in?) %>
+    <div class="jumbotron">
+      <h1>Lease made Easy with lEASY</h1>
+      <h2> A webApp to lease or share items easily with your friends.<h2>
+    </div>
     <br>
     <h2> Check what items are currently available to lease or share from your friends ? </h2>
     <br>
@@ -63,3 +75,4 @@
     <h2> Be resourceful to your friends, add new stuff to lease </h2>
   <%= link_to 'Add items', new_listing_path, class: "btn btn-success"  %>
 <% end %>
+</body>
