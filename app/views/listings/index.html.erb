@@ -54,7 +54,7 @@
 
 <br>
     <h2> Be resourceful to your friends, add new stuff to lease </h2>
-  <%= link_to 'Add items', new_listing_path, class: "btn btn-success"  %>
+  <%= link_to 'Add items', new_listing_path, class: "btn btn-success", data: { no_turbolink: true}  %>
 <% end %>
 
 <% if (!user_signed_in?) %>

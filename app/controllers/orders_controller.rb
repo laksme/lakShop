@@ -44,7 +44,11 @@ end
       flash[:danger] = e.message
     end
 
-    
+      transfer = Stripe::Transfer.create(
+      :amount => (@listing.price * 97).floor,
+      :currency => "usd",
+      :recipient => @seller.recipient
+      )
 
     respond_to do |format|
        if @order.save
