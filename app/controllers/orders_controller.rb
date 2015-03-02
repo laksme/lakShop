@@ -30,7 +30,7 @@ end
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
+    Stripe.api_key = Rails.configuration.stripe[:secret_key]
     token = params[:stripeToken]
 
     begin

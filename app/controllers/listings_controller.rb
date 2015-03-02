@@ -33,7 +33,7 @@ class ListingsController < ApplicationController
 
     @listing.user_id = current_user.id
     if current_user.recipient.blank?
-      Stripe.api_key = ENV["STRIPE_API_KEY"]
+      Stripe.api_key = Rails.configuration.stripe[:secret_key]
       token = params[:stripeToken]
 
       recipient = Stripe::Recipient.create(
