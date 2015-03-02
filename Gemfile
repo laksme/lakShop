@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rubygems.org'
 ruby "2.2.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -28,7 +29,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-digitalocean'
 gem 'omniauth-facebook'
-
+gem 'stripe'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
