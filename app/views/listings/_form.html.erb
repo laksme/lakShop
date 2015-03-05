@@ -34,8 +34,8 @@
   </div>
 <% if current_user.recipient.blank? %>  
   <br><br>
-  <h1>Bank Account Information</h1>
-
+  <h2> Your Bank Account Details</h2>
+  <h4> We need this to be able to make a secure deposit when someone rents or leases items from you.</h4>
     <div class="form-group">
       <%= label_tag :country %>
       <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
@@ -52,5 +52,6 @@
 
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>
+    <P align="right"> Our transactions are safe and secure and is powered by  <%= link_to "Stripe", "https://stripe.com/" %> </p>
   </div>
 <% end %>
