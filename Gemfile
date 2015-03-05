@@ -30,6 +30,7 @@ gem 'omniauth'
 gem 'omniauth-digitalocean'
 gem 'omniauth-facebook'
 gem 'stripe'
+gem 'searchkick'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 

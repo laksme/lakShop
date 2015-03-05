@@ -17,8 +17,15 @@
         <li><%= link_to "About", pages_about_path %></li>
         <li><%= link_to "Contact", pages_contact_path %></li>
       </ul>
+
+      <% if user_signed_in? %>
+        <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <%= text_field_tag :query, params[:query], placeholder: "Search..." , :size =>40 %>
+        </div>
+        <%= submit_tag "Search", name: nil, class: "postfix button" %>
+      </form>
       <ul class="nav navbar-nav navbar-right">
-        <% if user_signed_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Lease Outs<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -34,13 +41,15 @@
           <li class="divider"></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
           </ul>
-        </li>
-         
-        <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Log In", new_user_session_path %></li>
-        <% end %>
+        </li>  
       </ul>
+      <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Log In", new_user_session_path %> </li>
+      </ul>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

@@ -9,7 +9,11 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order("created_at DESC")
+    if params[:query].present?
+      @listings = Listing.search params[:query], fields: [{name: :word_start}], misspellings: {edit_distance: 2} #, page: params[:page])
+    else
+       @listings = Listing.all.order("created_at DESC")
+    end
   end
 
   # GET /listings/1
@@ -25,6 +29,9 @@ class ListingsController < ApplicationController
   # GET /listings/1/edit
   def edit
   end
+  #def search
+   # @listings_search = Listing.search params[:search], fields: [{name: :word_start}], misspellings: {edit_distance: 2}
+  #end
 
   # POST /listings
   # POST /listings.json
