@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'pages/contact'
   get 'static_pages/privacyPolicy'
+  get 'static_pages/termsOfService'
 
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
