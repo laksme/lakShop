@@ -1,5 +1,14 @@
 class Listing < ActiveRecord::Base
+	def full_address
+    	"#{address}, #{zipcode}, #{city}, #{country}"
+  	end
+  	
 	searchkick word_start: [:name]
+	geocoded_by :full_address
+	after_validation :geocode
+
+	
+
 	if Rails.env.development?
 		has_attached_file :image, :styles => { :medium => "200x", :thumb => "100x100>" }, :default_url => "default.jpg"
     else

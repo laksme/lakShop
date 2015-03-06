@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   get 'pages/contact'
+  get 'static_pages/privacyPolicy'
 
   get 'seller' => "listings#seller"
   get 'sales' => "orders#sales"
   get 'purchases' => "orders#purchases"
-
+  get '/users/subregion_options' => 'users#subregion_options'
   root 'listings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

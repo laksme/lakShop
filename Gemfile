@@ -31,9 +31,12 @@ gem 'omniauth-digitalocean'
 gem 'omniauth-facebook'
 gem 'stripe'
 gem 'searchkick'
+gem 'geocoder'
+gem 'country_state_select'
+gem 'carmen-rails', '~> 1.0.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'koala'
 
 group :production do
 	gem 'pg'

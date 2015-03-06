@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
    has_many :listings, dependent: :destroy
    has_many :sales, class_name: "Order", foreign_key: "seller_id"
    has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+   
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider

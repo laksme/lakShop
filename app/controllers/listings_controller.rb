@@ -37,7 +37,11 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-
+    @listing.address = current_user.address
+    @listing.city = current_user.city
+    @listing.state = current_user.state
+    @listing.zipcode = current_user.zipcode
+    @listing.country = current_user.country
     @listing.user_id = current_user.id
     if current_user.recipient.blank?
       Stripe.api_key = Rails.configuration.stripe[:secret_key]

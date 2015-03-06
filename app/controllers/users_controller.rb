@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def edit
     # authorize! :update, @user
   end
+  def subregion_options
+    render partial: 'subregion_select'
+  end
 
       # PATCH/PUT /users/:id.:format
   def update

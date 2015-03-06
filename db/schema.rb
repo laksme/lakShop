@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302204714) do
+ActiveRecord::Schema.define(version: 20150305230717) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 20150302204714) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -90,6 +97,11 @@ ActiveRecord::Schema.define(version: 20150302204714) do
     t.string   "provider"
     t.string   "uid"
     t.string   "recipient"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

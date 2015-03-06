@@ -26,9 +26,32 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: "form-control" %>
+  </div>
+  
+<div class="form-group">
+    <%= f.label :state %>
+    <%= f.text_field :state, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :country%><br />
+  <%= f.country_select :country, priority: %w(US CA), prompt: 'Please select a country' %>
+  </div>
+  
+  <% if false %>
+    Enable this block once you find a way to make countries select work
+   <div class="form-group">
+    <%= f.label :state %><br />
+  <%= render partial: 'subregion_select', locals: {parent_region: f.object.country} %>
+  </div>
+<% end %>
+
   <div class="actions">
     <%= f.submit "Sign up", class: "btn btn-primary"  %>
   </div>
 <% end %>
+
 
 <%= render "devise/shared/links" %>

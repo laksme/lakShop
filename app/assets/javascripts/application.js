@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require country_state_select
 var vid = document.getElementById("bgvid");
 var pauseButton = document.querySelector("#polina button");
 
